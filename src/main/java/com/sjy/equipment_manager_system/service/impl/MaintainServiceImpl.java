@@ -28,4 +28,14 @@ public class MaintainServiceImpl implements MaintainService {
     public List<Maintain> selectAllMaintain() {
         return maintainMapper.selectAll();
     }
+
+    @Override
+    public int deleteMaintainBill(String maintainId) {
+        return maintainMapper.deleteByPrimaryKey(maintainId);
+    }
+
+    @Override
+    public int updateMaintainStatus(Maintain maintain) {
+        return maintainMapper.updateByPrimaryKeySelective(maintain);
+    }
 }

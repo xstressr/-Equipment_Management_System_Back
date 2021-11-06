@@ -29,4 +29,14 @@ public class RepairServiceImpl implements RepairService {
     public Repair selectByRepairNo(String RepairNo) {
         return repairMapper.selectByPrimaryKey(RepairNo);
     }
+
+    @Override
+    public int deleteRepairBill(String RepairNo) {
+        return repairMapper.deleteByPrimaryKey(RepairNo);
+    }
+
+    @Override
+    public int updateRepairStatus(Repair repair) {
+        return repairMapper.updateByPrimaryKeySelective(repair);
+    }
 }

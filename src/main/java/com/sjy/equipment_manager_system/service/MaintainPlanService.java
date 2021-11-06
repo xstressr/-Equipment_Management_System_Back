@@ -10,4 +10,7 @@ public interface MaintainPlanService {
     List<MaintainPlan> selectAllMaintainPlan();
 
     MaintainPlan selectByMaintainPlanId(String maintainPlanId);
+
+    int deleteMatainPlan(String maintainPlanId);
+
 }

@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:mysql://101.34.207.75:3306/project_work?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: abc123456
+    password: ghj5566!
 
 mybatis:
   mapper-locations:

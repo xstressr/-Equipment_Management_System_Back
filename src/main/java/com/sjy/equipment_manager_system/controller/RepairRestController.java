@@ -41,6 +41,23 @@ public class RepairRestController {
         return repair;
     }
 
+    @ApiOperation("通过单号删除")
+    @DeleteMapping("/api/repair/del/{repairNo}")
+    public String deleteRepairBill(@RequestParam String repairNo) {
+        int result = repairService.deleteRepairBill(repairNo);
+        return result > 0 ? "成功" : "失败";
+    }
+
+    @ApiOperation("通过单号更新状态")
+    @PutMapping("/api/repair/updateStatus")
+    public String updateStatus(@RequestBody Repair repair) {
+        repair.setRepairFinishDate(new Date());
+        repair.setVerifyPasstime(new Date());
+        int result = repairService.updateRepairStatus(repair);
+        return result > 0 ? "成功" : "失败";
+
+    }
+
 
 
 }

@@ -20,7 +20,7 @@
                 driverClass="com.mysql.cj.jdbc.Driver"
                 connectionURL="jdbc:mysql://101.34.207.75:3306/project_work"
                 userId="root"
-                password="abc123456"/>
+                password="ghj5566!"/>
 
         <!-- 生成POJO对象，并将类放到com.songguoliang.springboot.entity包下 -->
         <javaModelGenerator targetPackage="com.sjy.equipment_manager_system.entity" targetProject="src/main/java"></javaModelGenerator>

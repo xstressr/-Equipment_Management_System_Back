@@ -12,4 +12,8 @@ public interface MaintainService {
     Maintain selectByMaintainId(String maintainId);
 
     List<Maintain> selectAllMaintain();
+
+    int deleteMaintainBill(String maintainId);
+
+    int updateMaintainStatus(Maintain maintain);
 }

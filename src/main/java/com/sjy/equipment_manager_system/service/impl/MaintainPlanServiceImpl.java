@@ -28,4 +28,9 @@ public class MaintainPlanServiceImpl implements MaintainPlanService {
     public MaintainPlan selectByMaintainPlanId(String maintainPlanId) {
         return maintainPlanMapper.selectByPrimaryKey(maintainPlanId);
     }
+
+    @Override
+    public int deleteMatainPlan(String maintainPlanId) {
+        return maintainPlanMapper.deleteByPrimaryKey(maintainPlanId);
+    }
 }

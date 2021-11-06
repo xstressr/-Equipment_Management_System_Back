@@ -28,23 +28,33 @@ public class StaffRestController {
     @ApiOperation("用户登陆")
     @PostMapping("/api/staff/login")
     public String login(@RequestBody Staff staff){
-        Staff staff1 = staffService.selectByStaffName(staff.getStaffName(),staff.getStaffPwd());
-        log.info("登录成功！生成token！");
-        String token = JwtUtil.createToken(staff1);
-        return token;
+        if (staff.getStaffName() != "" && staff.getStaffPwd() != "")
+        {
+            Staff staff1 = staffService.selectByStaffName(staff.getStaffName(),staff.getStaffPwd());
+            log.info("登录成功！生成token！");
+            String token = JwtUtil.createToken(staff1);
+            return token;
+        }
+        return "缺少登录名或密码";
+
     }
 
     @ApiOperation("用户注册")
     @PostMapping("/api/staff/register")
     public String register(@RequestBody Staff staff) {
-        int result = staffService.insert(staff);
+        if (staff.getStaffName() != "" && staff.getStaffPwd() != "" && staff.getStaffJob() != null)
+        {
+            int result = staffService.insert(staff);
+            return result > 0 ? "成功" : "失败";
+        }
+        return "失败";
 
-        return result > 0 ? "成功" : "失败";
     }
 
     @ApiOperation("删除用户")
     @PostMapping("/api/staff/delete/{staffName}")
     public String deleteByStaffName(@RequestParam String staffName){
+
         int result = staffService.deleteByStaffName(staffName);
 
         return result > 0 ? "成功" : "失败";

@@ -64,5 +64,7 @@ public interface RepairMapper {
      */
     List<Repair> selectAll();
 
+    int updateRepairStatusAndRepairSubmitPeople();
+
 
 }

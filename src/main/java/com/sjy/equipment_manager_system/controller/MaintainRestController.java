@@ -1,6 +1,7 @@
 package com.sjy.equipment_manager_system.controller;
 
 import com.sjy.equipment_manager_system.entity.Maintain;
+import com.sjy.equipment_manager_system.entity.Repair;
 import com.sjy.equipment_manager_system.service.MaintainService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,6 +40,23 @@ public class MaintainRestController {
     public Maintain selectSingleMaintainPlan(@RequestParam String maintainId) {
         Maintain maintain = maintainService.selectByMaintainId(maintainId);
         return maintain;
+    }
+
+    @ApiOperation("通过id删除保养单")
+    @DeleteMapping("/api/maintain/del/{maintainId}")
+    public String deleteMaintainPlan(@RequestParam String maintainId) {
+        int result = maintainService.deleteMaintainBill(maintainId);
+        return result > 0 ? "成功" : "失败";
+    }
+
+    @ApiOperation("通过id更新状态")
+    @PutMapping("/api/maintain/updateStatus")
+    public String updateStatus(@RequestBody Maintain maintain) {
+        maintain.setMaintainFinishDate(new Date());
+        maintain.setVerifyPasstime(new Date());
+        int result = maintainService.updateMaintainStatus(maintain);
+        return result > 0 ? "成功" : "失败";
+
     }
 
 

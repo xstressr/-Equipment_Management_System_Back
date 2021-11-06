@@ -41,4 +41,11 @@ public class MaintainPlanRestController {
         return maintainPlan;
     }
 
+    @ApiOperation("通过定时任务号删除")
+    @DeleteMapping("/api/maintainPlan/del/{maintainPlanId}")
+    public String deleteMaintainPlan(@RequestParam String maintainPlanId) {
+        int result = maintainPlanService.deleteMatainPlan(maintainPlanId);
+        return result > 0 ? "成功" : "失败";
+    }
+
 }

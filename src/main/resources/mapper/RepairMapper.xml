@@ -216,4 +216,10 @@
       verify_passtime = #{verifyPasstime,jdbcType=TIMESTAMP}
     where repair_no = #{repairNo,jdbcType=VARCHAR}
   </update>
+  <update id="updateRepairStatusAndRepairSubmitPeople">
+    update t_repair
+    set
+      repair_status = #{repairStatus,jdbcType=VARCHAR},
+      where repair_no = #{repairNo,jdbcType=VARCHAR}
+  </update>
 </mapper>

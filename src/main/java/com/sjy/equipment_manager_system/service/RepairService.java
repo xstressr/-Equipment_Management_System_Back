@@ -11,4 +11,8 @@ public interface RepairService {
     List<Repair> selectAllRepair ();
 
     Repair selectByRepairNo (String RepairNo);
+
+    int deleteRepairBill (String RepairNo);
+
+    int updateRepairStatus (Repair repair);
 }
